@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Quittly – Kleinunternehmer-Steuern, endlich einfach</title>
+<meta name="description" content="Quittly begleitet §19-Kleinunternehmer durchs ganze Jahr: Belege scannen, Ausgaben sortieren, EÜR automatisch. Ohne Steuerberater, ohne Umsatzsteuer-Wirrwarr." />
+
+<!-- OpenGraph / Social -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Quittly – Kleinunternehmer-Steuern, endlich einfach" />
+<meta property="og:description" content="Beleg fotografieren, Kategorie antippen, fertig. Deine EÜR entsteht automatisch. Gemacht für §19-Kleinunternehmer." />
+<meta property="og:locale" content="de_DE" />
+<!-- TODO: og:image (1200x630) ergänzen, sobald Design-Asset da ist: <meta property="og:image" content="https://quittly.app/og-image.png" /> -->
+<meta name="twitter:card" content="summary_large_image" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+<!-- schema.org -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Quittly",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "iOS",
+  "description": "Steuer-App für §19-Kleinunternehmer: Belege scannen, Ausgaben sortieren, EÜR automatisch.",
+  "offers": { "@type": "Offer", "category": "subscription" },
+  "url": "https://apps.apple.com/de/app/id6768099254"
+}
+</script>
+
+<style>
+:root{
+  --cream:#FBF7EF;
+  --cream-2:#F3ECDA;
+  --ink:#2B2823;
+  --ink-soft:#615C52;
+  --quitte:#8C9A2E;
+  --quitte-deep:#5F6A1E;
+  --gold:#C8932B;
+  --gold-soft:#E9C877;
+  --line:#E7DEC9;
+  --white:#ffffff;
+  --radius:20px;
+  --shadow:0 18px 50px -20px rgba(60,52,20,.35);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  background:var(--cream);color:var(--ink);line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+section{padding:88px 0}
+h1,h2,h3{line-height:1.15;letter-spacing:-.02em;font-weight:800}
+h1{font-size:clamp(2.2rem,5vw,3.6rem)}
+h2{font-size:clamp(1.7rem,3.4vw,2.5rem);margin-bottom:14px}
+h3{font-size:1.18rem;font-weight:700}
+p{color:var(--ink-soft)}
+.eyebrow{font-weight:700;text-transform:uppercase;letter-spacing:.12em;font-size:.8rem;color:var(--gold);margin-bottom:14px}
+.center{text-align:center}
+.lead{font-size:1.15rem;max-width:620px}
+.center .lead{margin-left:auto;margin-right:auto}
+
+/* nav */
+header{position:sticky;top:0;z-index:50;background:rgba(251,247,239,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.3rem;letter-spacing:-.02em;color:var(--ink);text-decoration:none}
+.logo .mark{width:30px;height:30px;border-radius:9px;background:linear-gradient(135deg,var(--quitte),var(--gold));display:grid;place-items:center;color:#fff;font-weight:800}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:#fff;font-weight:600;text-decoration:none;padding:13px 22px;border-radius:999px;font-size:.98rem;transition:transform .15s ease,box-shadow .15s ease;border:none;cursor:pointer}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 24px -10px rgba(43,40,35,.6)}
+.btn-gold{background:linear-gradient(135deg,var(--quitte),var(--gold));color:#fff}
+.badge-link img{height:52px;display:block}
+
+/* hero */
+.hero{padding-top:64px;padding-bottom:40px}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+.hero-cta{display:flex;align-items:center;gap:18px;margin-top:30px;flex-wrap:wrap}
+.hero-note{font-size:.92rem;color:var(--ink-soft);margin-top:16px}
+.hero-note b{color:var(--quitte-deep)}
+
+/* phone mockup */
+.phone{width:300px;max-width:100%;margin:0 auto;aspect-ratio:300/620;background:#15140f;border-radius:42px;padding:12px;box-shadow:var(--shadow);position:relative}
+.phone::after{content:"";position:absolute;top:22px;left:50%;transform:translateX(-50%);width:110px;height:26px;background:#15140f;border-radius:0 0 16px 16px;z-index:3}
+.screen{width:100%;height:100%;border-radius:32px;background:#1c1b16;overflow:hidden;display:flex;flex-direction:column;color:#f4efe2}
+.scr-top{padding:30px 22px 14px;font-size:.7rem;color:#b9b2a0;display:flex;justify-content:space-between;align-items:center}
+.scr-h{padding:6px 22px 0;font-size:1.25rem;font-weight:800;color:#fff}
+.scr-sub{padding:2px 22px 16px;font-size:.78rem;color:#b9b2a0}
+.scr-card{margin:0 16px 12px;background:#26241d;border:1px solid #33302595;border-radius:16px;padding:14px 16px}
+.scr-amount{font-size:1.9rem;font-weight:800;color:#E9C877;letter-spacing:-.02em}
+.scr-label{font-size:.72rem;color:#b9b2a0;text-transform:uppercase;letter-spacing:.08em}
+.scr-row{display:flex;align-items:center;gap:12px;margin:0 16px 9px;background:#23211a;border-radius:13px;padding:11px 14px;font-size:.82rem}
+.scr-dot{width:30px;height:30px;border-radius:9px;background:linear-gradient(135deg,var(--quitte),var(--gold));flex:none;display:grid;place-items:center;font-size:.85rem}
+.scr-row .amt{margin-left:auto;font-weight:700;color:#f4efe2}
+.scr-scan{margin:6px 16px 0;border:2px dashed var(--gold-soft);border-radius:16px;height:96px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;color:var(--gold-soft);font-size:.8rem;font-weight:600}
+
+/* generic cards */
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:30px 26px}
+.card .ic{width:46px;height:46px;border-radius:13px;background:var(--cream-2);display:grid;place-items:center;margin-bottom:18px;color:var(--quitte-deep)}
+.card h3{margin-bottom:8px}
+.card p{font-size:.96rem}
+
+/* alt section */
+.alt{background:var(--cream-2)}
+
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;counter-reset:s}
+.step{position:relative;padding:30px 26px;background:var(--white);border:1px solid var(--line);border-radius:var(--radius)}
+.step::before{counter-increment:s;content:counter(s);position:absolute;top:-16px;left:26px;width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--quitte),var(--gold));color:#fff;font-weight:800;display:grid;place-items:center}
+.step h3{margin:10px 0 6px}
+
+/* for-whom */
+.whom{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.whom .box{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:30px}
+.whom ul{list-style:none;margin-top:14px}
+.whom li{padding:7px 0 7px 30px;position:relative;font-size:.96rem;color:var(--ink-soft)}
+.whom li::before{position:absolute;left:0;top:6px;font-weight:700}
+.whom .yes li::before{content:"✓";color:var(--quitte)}
+.whom .no li::before{content:"✕";color:#b9542e}
+
+/* trust */
+.trust{background:var(--ink);color:#f4efe2}
+.trust h2{color:#fff}
+.trust p{color:#c9c2b2}
+.trust .grid-3{margin-top:36px}
+.trust .t-item{padding:24px;border:1px solid #3a372d;border-radius:var(--radius);background:#322f26}
+.trust .t-item h3{color:#fff;margin-bottom:6px}
+.trust .t-item p{font-size:.93rem}
+
+/* faq */
+.faq-item{border-bottom:1px solid var(--line)}
+.faq-q{width:100%;text-align:left;background:none;border:none;padding:22px 4px;font-size:1.06rem;font-weight:600;color:var(--ink);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;font-family:inherit}
+.faq-q .chev{flex:none;transition:transform .2s ease;color:var(--gold)}
+.faq-item.open .chev{transform:rotate(180deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .25s ease}
+.faq-a p{padding:0 4px 22px;font-size:.98rem}
+
+/* final cta */
+.final{background:linear-gradient(135deg,var(--quitte),var(--gold));color:#fff;border-radius:28px;padding:60px 40px;text-align:center;margin:0 24px}
+.final h2{color:#fff}
+.final p{color:rgba(255,255,255,.9);margin-bottom:26px}
+.final .badge-link{display:inline-block}
+
+/* footer */
+footer{padding:48px 0 60px;border-top:1px solid var(--line);margin-top:80px}
+.foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:18px}
+.foot a{color:var(--ink-soft);text-decoration:none;font-size:.92rem;margin-right:20px}
+.foot a:hover{color:var(--ink)}
+.foot .copy{font-size:.86rem;color:var(--ink-soft)}
+
+@media(max-width:860px){
+  section{padding:64px 0}
+  .hero-grid{grid-template-columns:1fr;gap:36px}
+  .hero .phone{order:-1}
+  .grid-3,.steps{grid-template-columns:1fr}
+  .grid-2,.whom{grid-template-columns:1fr}
+  nav .badge-link{display:none}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <nav>
+      <a href="#" class="logo"><span class="mark">Q</span>Quittly</a>
+      <a class="badge-link" href="https://apps.apple.com/de/app/id6768099254" aria-label="Quittly im App Store laden">
+        <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/de-de?size=250x83" alt="Im App Store laden" />
+      </a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">Für §19-Kleinunternehmer</p>
+      <h1>Kleinunternehmer-Steuern, endlich einfach.</h1>
+      <p class="lead" style="margin-top:18px">Beleg fotografieren, Kategorie antippen, fertig. Deine EÜR entsteht automatisch im Hintergrund – ohne Steuerberater, ohne Umsatzsteuer-Wirrwarr, ohne Buchhaltungs-Vokabular.</p>
+      <div class="hero-cta">
+        <a class="badge-link" href="https://apps.apple.com/de/app/id6768099254" aria-label="Quittly im App Store laden">
+          <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/de-de?size=250x83" alt="Im App Store laden" />
+        </a>
+      </div>
+      <p class="hero-note">Gemacht für <b>§19</b> – nicht für Konzerne. Deine Daten bleiben deine Daten.</p>
+    </div>
+
+    <!-- Phone mockup (Platzhalter-UI – mit echten Screenshots ersetzen) -->
+    <div class="phone" aria-hidden="true">
+      <div class="screen">
+        <div class="scr-top"><span>9:41</span><span>EÜR 2026</span></div>
+        <div class="scr-h">Überschuss</div>
+        <div class="scr-sub">Stand heute · automatisch berechnet</div>
+        <div class="scr-card">
+          <div class="scr-label">Einnahmen – Ausgaben</div>
+          <div class="scr-amount">4.812,40 €</div>
+        </div>
+        <div class="scr-scan">
+          <span>＋ Beleg scannen</span>
+          <span style="font-size:.68rem;color:#9a9484">Foto rein, fertig</span>
+        </div>
+        <div style="height:14px"></div>
+        <div class="scr-row"><span class="scr-dot">🧾</span>Bürobedarf<span class="amt">−24,90 €</span></div>
+        <div class="scr-row"><span class="scr-dot">🚗</span>Fahrtkosten<span class="amt">−61,20 €</span></div>
+        <div class="scr-row"><span class="scr-dot">💻</span>Software<span class="amt">−12,00 €</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section>
+  <div class="wrap">
+    <div class="center">
+      <p class="eyebrow">Kennst du das?</p>
+      <h2>Steuern als Kleinunternehmer fühlen sich an wie ein Minenfeld.</h2>
+    </div>
+    <div class="grid-3" style="margin-top:44px">
+      <div class="card">
+        <div class="ic">📦</div>
+        <h3>Der Schuhkarton</h3>
+        <p>Belege stapeln sich, verblassen, gehen verloren. Im Frühjahr sortierst du Quittungen statt zu arbeiten.</p>
+      </div>
+      <div class="card">
+        <div class="ic">😰</div>
+        <h3>Die Frühjahrs-Panik</h3>
+        <p>Steuererklärung steht an, du weißt nicht, was zählt, und der Steuerberater ist für deine Größe zu teuer.</p>
+      </div>
+      <div class="card">
+        <div class="ic">🤯</div>
+        <h3>Das Steuerdeutsch</h3>
+        <p>Buchhaltungs-Apps überfordern mit Funktionen, die du als Kleinunternehmer nie brauchst.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LÖSUNG -->
+<section class="alt">
+  <div class="wrap">
+    <div class="center">
+      <p class="eyebrow">Die Lösung</p>
+      <h2>Drei Dinge. Mehr braucht deine EÜR nicht.</h2>
+      <p class="lead center">Quittly macht genau das, was §19-Kleinunternehmer brauchen – und lässt den Rest weg.</p>
+    </div>
+    <div class="grid-3" style="margin-top:44px">
+      <div class="card">
+        <div class="ic">📸</div>
+        <h3>KI-Beleg-Scan</h3>
+        <p>Quittung fotografieren – die KI erkennt Betrag, Datum und Kategorie automatisch. In Sekunden digital erfasst und sortiert. Nie wieder Papierstapel.</p>
+      </div>
+      <div class="card">
+        <div class="ic">📊</div>
+        <h3>EÜR automatisch</h3>
+        <p>Deine Einnahmen-Überschuss-Rechnung entsteht im Hintergrund und ist jederzeit exportbereit. Kein Steuerberater nötig.</p>
+      </div>
+      <div class="card">
+        <div class="ic">🎯</div>
+        <h3>Genau für §19</h3>
+        <p>Kein Umsatzsteuer-Wirrwarr, keine Konzern-Buchhaltung. Vorkonfigurierte Kategorien, die zu dir passen.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FÜR WEN -->
+<section>
+  <div class="wrap">
+    <div class="center">
+      <p class="eyebrow">Für wen</p>
+      <h2>Gemacht für die Kleinen. Bewusst.</h2>
+    </div>
+    <div class="whom" style="margin-top:40px">
+      <div class="box">
+        <h3>Quittly ist für dich, wenn du…</h3>
+        <ul class="yes">
+          <li>nebenberuflich selbstständig bist (Etsy, Online-Verkauf, Nachhilfe, Dienstleistung)</li>
+          <li>unter der Kleinunternehmergrenze nach §19 liegst</li>
+          <li>keine Umsatzsteuer ausweist</li>
+          <li>einfach nur deine EÜR sauber haben willst</li>
+        </ul>
+      </div>
+      <div class="box">
+        <h3>Quittly ist NICHT für…</h3>
+        <ul class="no">
+          <li>GmbHs oder Firmen mit Mitarbeitern</li>
+          <li>umsatzsteuerpflichtige Betriebe</li>
+          <li>komplexe Buchhaltung mit Rechnungsstellung als Hauptbedarf</li>
+          <li>alle, die ein Konzern-Tool suchen</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SO FUNKTIONIERT'S -->
+<section class="alt">
+  <div class="wrap">
+    <div class="center">
+      <p class="eyebrow">So funktioniert's</p>
+      <h2>In 3 Taps von der Quittung zur Steuer.</h2>
+    </div>
+    <div class="steps" style="margin-top:52px">
+      <div class="step">
+        <h3>Foto rein</h3>
+        <p>Beleg abfotografieren. Quittly erfasst die Daten automatisch.</p>
+      </div>
+      <div class="step">
+        <h3>Kategorie antippen</h3>
+        <p>Eine der vorkonfigurierten Kategorien wählen – fertig sortiert.</p>
+      </div>
+      <div class="step">
+        <h3>EÜR ist fertig</h3>
+        <p>Deine Rechnung aktualisiert sich automatisch. Jederzeit exportbereit.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST -->
+<section class="trust">
+  <div class="wrap">
+    <div class="center">
+      <p class="eyebrow">Vertrauen</p>
+      <h2>Deine Steuerdaten gehören dir.</h2>
+      <p class="lead center">Finanzdaten sind sensibel. Quittly behandelt sie so.</p>
+    </div>
+    <div class="grid-3">
+      <div class="t-item"><h3>🔒 Privat</h3><p>Deine Daten bleiben deine Daten – kein Weiterverkauf, keine Werbung.</p></div>
+      <div class="t-item"><h3>🇩🇪 Aus Deutschland</h3><p>Entwickelt von einem Indie-Developer in Deutschland, für deutsches Steuerrecht.</p></div>
+      <div class="t-item"><h3>📤 Du hast die Kontrolle</h3><p>EÜR jederzeit exportieren – deine Daten gehen mit dir, wohin du willst.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section>
+  <div class="wrap" style="max-width:760px">
+    <div class="center">
+      <p class="eyebrow">FAQ</p>
+      <h2>Häufige Fragen</h2>
+    </div>
+    <div style="margin-top:36px">
+      <div class="faq-item">
+        <button class="faq-q">Brauche ich Quittly, wenn ich Kleinunternehmer bin?<span class="chev">⌄</span></button>
+        <div class="faq-a"><p>Als Kleinunternehmer nach §19 musst du eine Einnahmen-Überschuss-Rechnung (EÜR) abgeben. Quittly sammelt deine Belege das ganze Jahr und erstellt die EÜR automatisch – damit du im Frühjahr nichts rekonstruieren musst.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Ersetzt Quittly den Steuerberater?<span class="chev">⌄</span></button>
+        <div class="faq-a"><p>Für typische Kleinunternehmer-Fälle nimmt dir Quittly die laufende Erfassung und die EÜR ab. Bei komplexen Situationen ersetzt keine App die individuelle Beratung – Quittly macht den Alltag einfach, nicht jeden Sonderfall.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Muss ich mich mit Umsatzsteuer auskennen?<span class="chev">⌄</span></button>
+        <div class="faq-a"><p>Nein. Quittly ist bewusst für §19 ohne Umsatzsteuer gebaut. Genau dieses Wirrwarr lassen wir weg.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Was kostet Quittly?<span class="chev">⌄</span></button>
+        <div class="faq-a"><p>Quittly kannst du kostenlos starten – inklusive 5 KI-Beleg-Scans pro Monat. Quittly Pro kostet <b>4,99 €/Monat</b> oder <b>34,99 €/Jahr</b> (rund 41 % günstiger) und schaltet unbegrenzte KI-Scans frei.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Sind meine Daten sicher?<span class="chev">⌄</span></button>
+        <div class="faq-a"><p>Deine Finanzdaten werden privat behandelt und nicht weiterverkauft. Du kannst deine EÜR jederzeit exportieren und behältst die volle Kontrolle.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section style="padding-top:0">
+  <div class="final">
+    <h2>Schluss mit dem Beleg-Chaos.</h2>
+    <p>Lade Quittly und bring deine Kleinunternehmer-Steuer ins Reine.</p>
+    <a class="badge-link" href="https://apps.apple.com/de/app/id6768099254" aria-label="Quittly im App Store laden">
+      <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/de-de?size=250x83" alt="Im App Store laden" />
+    </a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot">
+    <div>
+      <a href="/impressum.html">Impressum</a>
+      <a href="/datenschutz.html">Datenschutz</a>
+      <a href="mailto:loopcrafts.app@gmail.com">Support</a>
+    </div>
+    <div class="copy">© 2026 Quittly · loopcrafts</div>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('.faq-q').forEach(function(q){
+  q.addEventListener('click', function(){
+    var item = q.parentElement;
+    var ans = q.nextElementSibling;
+    var open = item.classList.toggle('open');
+    ans.style.maxHeight = open ? ans.scrollHeight + 'px' : null;
+  });
+});
+</script>
+</body>
+</html>
